@@ -25,9 +25,9 @@ const RepoCard =({data}:any) => {
         </p>
         <div className="flex flex-wrap gap-2">
           {
-            data?.topics?.map((topic:any) => {
+            data?.topics?.map((topic:any,index:any) => {
               return (
-                <span className="bg-muted rounded-full px-3 py-1 text-xs font-medium">{topic}</span>
+                <span key={index} className="bg-muted rounded-full px-3 py-1 text-xs font-medium">{topic}</span>
               )
             })
           }
