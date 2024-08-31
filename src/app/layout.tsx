@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter,Rethink_Sans } from "next/font/google";
+import { Inter, Rethink_Sans } from "next/font/google";
 import "./globals.css";
+import Lenis from "@/components/Lenis";
 
 const inter = Inter({ subsets: ["latin"] });
-const rethink = Rethink_Sans({ subsets:["latin"]})
+const rethink = Rethink_Sans({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -17,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rethink.className}>{children}</body>
+      <body className={rethink.className}>
+        <Lenis>
+          {children}
+        </Lenis>
+      </body>
     </html>
   );
 }

@@ -5,6 +5,7 @@ import { PROGRAMMING_LANGUAGES } from "@/utils/constants";
 import { Button } from "./ui/button";
 import { ArrowRightIcon, LoaderCircleIcon } from "lucide-react";
 import RepoCard from "./RepoCard";
+import Lenis from "./Lenis";
 
 const SearchInput = () => {
   const [value, setValue] = useState<Option>();
@@ -53,10 +54,10 @@ const SearchInput = () => {
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
       </div>
-      <div className=" mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {repo?.items?.map((item: any,index:any) => {
-          return <RepoCard key={index} data={item} />;
-        })}
+      <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
+          {repo?.items?.map((item: any, index: any) => {
+            return <RepoCard key={index} data={item} />;
+          })}
       </div>
     </section>
   );
