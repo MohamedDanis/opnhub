@@ -15,7 +15,7 @@ const RepoCard =({data}:any) => {
           <AvatarFallback>GH</AvatarFallback>
         </Avatar>
         <div className="space-y-1">
-          <h3 className="text-xl font-bold">{data.name}</h3>
+          <h3 className="text-xl font-bold text-wrap">{data.name}</h3>
           <p className="text-muted-foreground">{data.owner.login}</p>
         </div>
       </div>

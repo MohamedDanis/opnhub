@@ -34,7 +34,7 @@ const SearchInput = () => {
   }
 
   return (
-    <section className="flex gap-4 flex-col items-center">
+    <section className="flex gap-4 flex-col items-center px-6">
       <div className="flex gap-4">
         <AutoComplete
           options={PROGRAMMING_LANGUAGES}
@@ -53,7 +53,7 @@ const SearchInput = () => {
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
       </div>
-      <div className=" mt-10 grid grid-cols-3 gap-4">
+      <div className=" mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {repo?.items?.map((item: any,index:any) => {
           return <RepoCard key={index} data={item} />;
         })}
