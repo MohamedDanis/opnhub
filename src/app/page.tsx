@@ -1,6 +1,7 @@
 import { SearchInput } from "@/components";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
         Discover open-source projects from GitHub, categorized by programming language, with this intuitive web app.
         </p>
       </div>
+      <Link className="absolute top-10 right-10" href="https://www.producthunt.com/posts/opnhub?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-opnhub" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=485687&theme=light" alt="OPNHUB - Discover&#0032;open&#0045;source&#0032;projects&#0032;from&#0032;GitHub | Product Hunt" style={{width: '200px', height: '44px'}} width="250" height="54" /></Link>
         <div className="flex flex-col gap-4 my-5 relative">
           {/* <Input placeholder="Type your language" /> */}
         <SearchInput/>
