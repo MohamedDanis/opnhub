@@ -11,11 +11,10 @@ const SearchInput = () => {
   const [value, setValue] = useState<Option>();
   const [isLoading, setLoading] = useState(false);
   const [isDisabled, setDisbled] = useState(false);
+  const [topics, setTopics] = useState<any>([]);
   const [repo, setRepo] = useState<any>();
-  async function fetchRepos() {}
   async function handleSubmit() {
     setLoading(true);
-
     try {
       const query =
         "q=" +
@@ -23,7 +22,7 @@ const SearchInput = () => {
           `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${value?.value}`
         );
       const data = await fetch(
-        `https://api.github.com/search/repositories?${query}`
+        `https://api.github.com/search/repositories?${query}&per_page=110`
       );
       const repos = await data.json();
       setRepo(repos);
@@ -33,7 +32,6 @@ const SearchInput = () => {
       setLoading(false);
     }
   }
-
   return (
     <section className="flex gap-4 flex-col items-center px-6">
       <div className="flex gap-4">

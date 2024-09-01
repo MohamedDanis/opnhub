@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rethink.className}>
-        <Lenis>
+        {/* <Lenis> */}
           {children}
-        </Lenis>
+        {/* </Lenis> */}
       </body>
     </html>
   );
