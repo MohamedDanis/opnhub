@@ -1,14 +1,7 @@
 import { SearchInput } from "@/components";
-import { Metadata } from "next";
 import Head from "next/head";
 import Image from "next/image";
-export const metadata: Metadata = {
-  title: "OPNHUB | Discover open-source projects from GitHub",
-  description: "Discover open-source projects from GitHub, categorized by programming language, with this intuitive web app.",
-  icons: {
-    icon: '/favicon.ico', // /public path
-  },
-};
+
 export default function Home() {
 
   return (
