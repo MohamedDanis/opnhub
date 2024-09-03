@@ -1,6 +1,6 @@
 <h1 align="center" id="title">OPNHUB</h1>
 
-<p align="center"><img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image"></p>
+<img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image">
 
 <p id="description">Discover open-source projects from GitHub categorized by programming language with this intuitive web app</p>
 
