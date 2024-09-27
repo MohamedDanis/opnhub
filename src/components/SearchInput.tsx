@@ -19,7 +19,7 @@ const SearchInput = () => {
       const query =
         "q=" +
         encodeURIComponent(
-          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${value?.value}`
+          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 topic:hacktoberfest license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${value?.value}`
         );
       const data = await fetch(
         `https://api.github.com/search/repositories?${query}&per_page=110`

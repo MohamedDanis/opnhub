@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Rethink_Sans } from "next/font/google";
+import { Inter, Rethink_Sans,Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Lenis from "@/components/Lenis";
 
 const inter = Inter({ subsets: ["latin"] });
 const rethink = Rethink_Sans({ subsets: ["latin"] });
+const grotesk = Space_Grotesk({ subsets: ["latin"],variable:'--font-grotesk' });
 
 export const metadata: Metadata = {
   title: "OPNHUB | Discover open-source projects from GitHub",
@@ -33,11 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={grotesk.variable}>
       <body className={rethink.className}>
-        {/* <Lenis> */}
           {children}
-        {/* </Lenis> */}
       </body>
     </html>
   );
