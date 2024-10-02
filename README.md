@@ -1,6 +1,6 @@
 <h1 align="center" id="title">OPNHUB</h1>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"><img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image"></p>
@@ -73,6 +73,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/preronagit"><img src="https://avatars.githubusercontent.com/u/145032457?v=4?s=100" width="100px;" alt="Prerona"/><br /><sub><b>Prerona</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=preronagit" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://myportfolio.anuragg.top"><img src="https://avatars.githubusercontent.com/u/81381360?v=4?s=100" width="100px;" alt="Kumar Anurag"/><br /><sub><b>Kumar Anurag</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=10kumaranurag01" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://siddxharth.me"><img src="https://avatars.githubusercontent.com/u/91618085?v=4?s=100" width="100px;" alt="Siddharth Sharma"/><br /><sub><b>Siddharth Sharma</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=siddxharth1" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
