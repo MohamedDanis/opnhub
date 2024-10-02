@@ -15,6 +15,7 @@ const SearchInput = () => {
   const [repo, setRepo] = useState<any>();
   async function handleSubmit() {
     setLoading(true);
+    setDisbled(true);
     try {
       const query =
         "q=" +
@@ -30,6 +31,7 @@ const SearchInput = () => {
       console.log(error);
     } finally {
       setLoading(false);
+      setDisbled(false);
     }
   }
   return (
@@ -48,14 +50,15 @@ const SearchInput = () => {
           Icon={ArrowRightIcon}
           iconPlacement="right"
           onClick={handleSubmit}
+          disabled={isDisabled}
         >
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
       </div>
       <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
-          {repo?.items?.map((item: any, index: any) => {
-            return <RepoCard key={index} data={item} />;
-          })}
+        {repo?.items?.map((item: any, index: any) => {
+          return <RepoCard key={index} data={item} />;
+        })}
       </div>
     </section>
   );
