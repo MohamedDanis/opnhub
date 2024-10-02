@@ -13,9 +13,11 @@ const SearchInput = () => {
   const [repo, setRepo] = useState<any>();
   async function handleSubmit(topic: any) {
     setLoading(true);
+
 	if(!topic) {
 		topic="hacktoberfest"
 	}
+    setDisbled(true);
     try {
       const query =
         "q=" +
@@ -32,6 +34,7 @@ const SearchInput = () => {
       console.log(error);
     } finally {
       setLoading(false);
+      setDisbled(false);
     }
   }
 
@@ -52,6 +55,7 @@ const SearchInput = () => {
           Icon={ArrowRightIcon}
           iconPlacement="right"
           onClick={()=>{ handleSubmit("hacktoberfest") }}
+          disabled={isDisabled}
         >
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
