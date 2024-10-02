@@ -1,4 +1,7 @@
 <h1 align="center" id="title">OPNHUB</h1>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"><img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image"></p>
 
@@ -57,3 +60,26 @@ Technologies used in the project:
 *   Next.JS
 *   GitHub REST API
 *   Shadcn/ui
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/preronagit"><img src="https://avatars.githubusercontent.com/u/145032457?v=4?s=100" width="100px;" alt="Prerona"/><br /><sub><b>Prerona</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=preronagit" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://myportfolio.anuragg.top"><img src="https://avatars.githubusercontent.com/u/81381360?v=4?s=100" width="100px;" alt="Kumar Anurag"/><br /><sub><b>Kumar Anurag</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=10kumaranurag01" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
