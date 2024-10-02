@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Rethink_Sans,Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 const rethink = Rethink_Sans({ subsets: ["latin"] });
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={grotesk.variable}>
       <Analytics/>
+      <SpeedInsights/>
       <body className={rethink.className}>
           {children}
       </body>
