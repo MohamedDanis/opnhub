@@ -40,15 +40,6 @@ export const AutoComplete = ({
   const [selected, setSelected] = useState<Option>(value as Option);
   const [inputValue, setInputValue] = useState<string>(value?.label || "");
 
-  useEffect(() => {
-		if (value) {
-			setSelected(value)
-			setInputValue(value.label)
-		} else {
-			setInputValue("")
-		}
-  }, [value])
-
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
       const input = inputRef.current;

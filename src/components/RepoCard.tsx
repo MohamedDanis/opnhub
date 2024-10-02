@@ -8,11 +8,9 @@ import { Button } from "./ui/button";
 const RepoCard = ({
 	data,
 	handleSubmit,
-	handleValueChange,
 }: {
 	data: any
 	handleSubmit: (topic: any) => void
-	handleValueChange: (value:any) => void
 }) => {
   const [showMore, setShowMore] = useState(false);
 
@@ -48,9 +46,8 @@ const RepoCard = ({
               <span
                 key={index}
                 className="bg-muted rounded-full px-3 py-1 text-xs font-medium cursor-pointer hover:bg-violet-300 transition-all duration-400"
-				onClick={()=>{ 
-					handleValueChange({ value: topic, label: topic })
-					handleSubmit({ value:topic, label:topic })
+				onClick={()=>{
+					handleSubmit(topic)
 			 	}}
               >
                 {topic}

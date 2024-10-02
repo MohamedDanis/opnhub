@@ -10,23 +10,24 @@ import Lenis from "./Lenis";
 const SearchInput = () => {
   const [value, setValue] = useState<Option>();
   const [isLoading, setLoading] = useState(false);
-  const [isDisabled, setDisbled] = useState(false);
-  const [topics, setTopics] = useState<any>([]);
   const [repo, setRepo] = useState<any>();
-  async function handleSubmit(value: any) {
-	console.log(value)
+  async function handleSubmit(topic: any) {
     setLoading(true);
+	if(!topic) {
+		topic="hacktoberfest"
+	}
     try {
       const query =
         "q=" +
         encodeURIComponent(
-          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 topic:hacktoberfest license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${value?.value}`
+          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 topic:${topic} license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${value?.value}`
         );
       const data = await fetch(
         `https://api.github.com/search/repositories?${query}&per_page=110`
       );
       const repos = await data.json();
       setRepo(repos);
+	  window.scrollTo(0,0)
     } catch (error) {
       console.log(error);
     } finally {
@@ -34,9 +35,6 @@ const SearchInput = () => {
     }
   }
 
-  const handleValueChange = (newValue: Option) => {
-	setValue(newValue)
-  }
 
   return (
     <section className="flex gap-4 flex-col items-center px-6">
@@ -46,21 +44,21 @@ const SearchInput = () => {
           emptyMessage="No results."
           placeholder="Type your language"
           isLoading={isLoading}
-          onValueChange={handleValueChange}
+          onValueChange={setValue}
           value={value}
         />
         <Button
           variant={isLoading ? "default" : "expandIcon"}
           Icon={ArrowRightIcon}
           iconPlacement="right"
-          onClick={()=>{ handleSubmit(value) }}
+          onClick={()=>{ handleSubmit("hacktoberfest") }}
         >
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
       </div>
       <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
           {repo?.items?.map((item: any, index: any) => {
-            return <RepoCard key={index} data={item} handleSubmit={handleSubmit} handleValueChange={handleValueChange} />;
+            return <RepoCard key={index} data={item} handleSubmit={handleSubmit} />;
           })}
       </div>
     </section>
