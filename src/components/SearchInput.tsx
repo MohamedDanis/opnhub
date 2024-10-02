@@ -13,7 +13,8 @@ const SearchInput = () => {
   const [isDisabled, setDisbled] = useState(false);
   const [topics, setTopics] = useState<any>([]);
   const [repo, setRepo] = useState<any>();
-  async function handleSubmit() {
+  async function handleSubmit(value: any) {
+	console.log(value)
     setLoading(true);
     try {
       const query =
@@ -32,6 +33,11 @@ const SearchInput = () => {
       setLoading(false);
     }
   }
+
+  const handleValueChange = (newValue: Option) => {
+	setValue(newValue)
+  }
+
   return (
     <section className="flex gap-4 flex-col items-center px-6">
       <div className="flex gap-4">
@@ -40,21 +46,21 @@ const SearchInput = () => {
           emptyMessage="No results."
           placeholder="Type your language"
           isLoading={isLoading}
-          onValueChange={setValue}
+          onValueChange={handleValueChange}
           value={value}
         />
         <Button
           variant={isLoading ? "default" : "expandIcon"}
           Icon={ArrowRightIcon}
           iconPlacement="right"
-          onClick={handleSubmit}
+          onClick={()=>{ handleSubmit(value) }}
         >
           {isLoading ? <LoaderCircleIcon className="animate-spin" /> : "Search"}
         </Button>
       </div>
       <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
           {repo?.items?.map((item: any, index: any) => {
-            return <RepoCard key={index} data={item} />;
+            return <RepoCard key={index} data={item} handleSubmit={handleSubmit} handleValueChange={handleValueChange} />;
           })}
       </div>
     </section>

@@ -6,7 +6,7 @@ import {
   CommandInput,
 } from "./ui/command";
 import { Command as CommandPrimitive } from "cmdk";
-import { useState, useRef, useCallback, type KeyboardEvent } from "react";
+import { useState, useRef, useCallback, type KeyboardEvent, useEffect } from "react";
 
 import { Skeleton } from "./ui/skeleton";
 
@@ -39,6 +39,15 @@ export const AutoComplete = ({
   const [isOpen, setOpen] = useState(false);
   const [selected, setSelected] = useState<Option>(value as Option);
   const [inputValue, setInputValue] = useState<string>(value?.label || "");
+
+  useEffect(() => {
+		if (value) {
+			setSelected(value)
+			setInputValue(value.label)
+		} else {
+			setInputValue("")
+		}
+  }, [value])
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {

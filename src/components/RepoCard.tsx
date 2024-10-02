@@ -5,7 +5,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-const RepoCard = ({ data }: any) => {
+const RepoCard = ({
+	data,
+	handleSubmit,
+	handleValueChange,
+}: {
+	data: any
+	handleSubmit: (topic: any) => void
+	handleValueChange: (value:any) => void
+}) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
@@ -39,7 +47,11 @@ const RepoCard = ({ data }: any) => {
             return (
               <span
                 key={index}
-                className="bg-muted rounded-full px-3 py-1 text-xs font-medium"
+                className="bg-muted rounded-full px-3 py-1 text-xs font-medium cursor-pointer hover:bg-violet-300 transition-all duration-400"
+				onClick={()=>{ 
+					handleValueChange({ value: topic, label: topic })
+					handleSubmit({ value:topic, label:topic })
+			 	}}
               >
                 {topic}
               </span>
