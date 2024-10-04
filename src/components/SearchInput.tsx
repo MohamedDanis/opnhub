@@ -35,12 +35,12 @@ const SearchInput = () => {
     setSelectedLanguages(selectedLanguages.filter(lang => lang.value !== value));
   };
 
-  async function searchRepositories(language: string) {
+  async function searchRepositories(language: string, topic: string) {
     try {
       const query =
         "q=" +
         encodeURIComponent(
-          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 topic:hacktoberfest license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${language}`
+          `template:false archived:false fork:false stars:100..500 forks:>=3 is:public topics:>=3 topic:${topic} license:0bsd license:mit license:apache-2.0 license:gpl license:MPL-2.0 license:Unlicense license:AGPL-3.0 license:WTFPL license:CC language:${language}`
         );
       const response = await fetch(`https://api.github.com/search/repositories?${query}&per_page=110`);
       const data = await response.json();
@@ -51,24 +51,28 @@ const SearchInput = () => {
     }
   }
 
-  async function searchRepositoriesCombined(languages: Option[]) {
+  async function searchRepositoriesCombined(languages: Option[],topic: string) {
     const results: Repo[] = [];
     for (const language of languages) {
-      const repos = await searchRepositories(language.value);
+      const repos = await searchRepositories(language.value, topic);
       results.push(...repos);
     }
     return results;
   }
 
-  async function handleSubmit() {
+  async function handleSubmit(topic: string) {
     if (selectedLanguages.length === 0) return;
     setLoading(true);
     setDisbled(true);
     setError(null);
     setRepos([]);
 
+    if(!topic) {
+      topic = "hacktoberfest"
+    }
+
     try {
-      const combinedRepos = await searchRepositoriesCombined(selectedLanguages);
+      const combinedRepos = await searchRepositoriesCombined(selectedLanguages, topic);
       if (combinedRepos.length > 0) {
         // Sort combined results by stars
         const sortedRepos = combinedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
@@ -101,7 +105,7 @@ const SearchInput = () => {
             variant={isLoading ? "default" : "expandIcon"}
             Icon={ArrowRightIcon}
             iconPlacement="right"
-            onClick={handleSubmit}
+            onClick={()=>{ handleSubmit("hacktoberfest") }}
             disabled={isLoading || selectedLanguages.length === 0}
             className="shrink-0"
           >
@@ -128,7 +132,7 @@ const SearchInput = () => {
       )}
       <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
         {repos.map((item: Repo, index: number) => {
-          return <RepoCard key={index} data={item} />;
+          return <RepoCard key={index} data={item} handleSubmit={handleSubmit} />;
         })}
       </div>
     </section>
