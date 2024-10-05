@@ -49,7 +49,7 @@ const RepoCard = ({ data }: any) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-muted-foreground">
             <BugIcon className="w-5 h-5" />
-            <Link href="#" className="text-sm font-medium" prefetch={false}>
+            <Link href={`${data.html_url}/issues`} className="text-sm font-medium" prefetch={false}  target="_blank">
               {data?.open_issues_count}
             </Link>
           </div>
