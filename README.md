@@ -49,7 +49,7 @@ http://localhost:3000
 
 <h2>🍰 Contribution Guidelines:</h2>
 
-Please Check CONTRIBUTING.md
+Please Check [CONTRIBUTING.md](./CONTRIBUTING.md)
 
   
   
