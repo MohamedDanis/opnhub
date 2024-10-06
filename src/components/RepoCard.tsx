@@ -56,13 +56,13 @@ const RepoCard = ({ data }: any) => {
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <ForkIcon className="w-5 h-5" />
-            <Link href={`${data.html_url}/issues`} className="text-sm font-medium" prefetch={false}  target="_blank">
+            <Link href={`${data.html_url}/forks`} className="text-sm font-medium" prefetch={false}  target="_blank">
               {data?.forks_count}
             </Link>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <StarIcon className="w-5 h-5" />
-            <Link href={`${data.html_url}/issues`} className="text-sm font-medium" prefetch={false}  target="_blank">
+            <Link href={`${data.html_url}/stargazers`} className="text-sm font-medium" prefetch={false}  target="_blank">
               {data?.stargazers_count}
             </Link>
           </div>
