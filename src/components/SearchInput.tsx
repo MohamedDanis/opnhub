@@ -53,9 +53,9 @@ const SearchInput = () => {
         </Button>
       </div>
       <div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
-          {repo?.items?.map((item: any, index: any) => {
-            return <RepoCard key={index} data={item} />;
-          })}
+        {repo?.items?.map((item: any, index: any) => {
+          return <RepoCard key={index} data={item} />;
+        })}
       </div>
     </section>
   );
