@@ -4,6 +4,7 @@ import { Card } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { BugIcon, ForkIcon, StarIcon } from "./ui/icons";
 
 const RepoCard = ({ data }: any) => {
 	const [showMore, setShowMore] = useState(false);
@@ -33,10 +34,6 @@ const RepoCard = ({ data }: any) => {
 						</span>
 					)}
 				</p>
-				<div className="flex flex-wrap gap-2 items-center">
-					Language:
-					<div className="bg-muted p-1 rounded-md">{data.language}</div>
-				</div>
 				<div className="flex flex-wrap gap-2">
 					{data?.topics?.slice(0, 5).map((topic: any, index: any) => {
 						return (
@@ -51,8 +48,32 @@ const RepoCard = ({ data }: any) => {
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-2 text-muted-foreground">
 						<BugIcon className="w-5 h-5" />
-						<Link href="#" className="text-sm font-medium" prefetch={false}>
+						<Link
+							href={`${data.html_url}/issues`}
+							className="text-sm font-medium"
+							prefetch={false}
+							target="_blank">
 							{data?.open_issues_count}
+						</Link>
+					</div>
+					<div className="flex items-center gap-2 text-muted-foreground">
+						<ForkIcon className="w-5 h-5" />
+						<Link
+							href={`${data.html_url}/forks`}
+							className="text-sm font-medium"
+							prefetch={false}
+							target="_blank">
+							{data?.forks_count}
+						</Link>
+					</div>
+					<div className="flex items-center gap-2 text-muted-foreground">
+						<StarIcon className="w-5 h-5" />
+						<Link
+							href={`${data.html_url}/stargazers`}
+							className="text-sm font-medium"
+							prefetch={false}
+							target="_blank">
+							{data?.stargazers_count}
 						</Link>
 					</div>
 					<Button

@@ -51,6 +51,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "HalfToothed",
+      "name": "Abhishek Patil",
+      "avatar_url": "https://avatars.githubusercontent.com/u/105924966?v=4",
+      "profile": "http://halftoothed.github.io",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "akshayxml",
+      "name": "Akshay M",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22844002?v=4",
+      "profile": "http://akshayxml.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
