@@ -34,7 +34,7 @@ const RepoCard = ({ data }: any) => {
 						) : (
 							<CodeIcon width={24} height={24} fill="currentColor" />
 						)}
-						<div>{data.language}</div>
+						<div className="text-muted-foreground">{data.language}</div>
 					</div>
 				</div>
 			</div>
