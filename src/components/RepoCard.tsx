@@ -31,7 +31,7 @@ const RepoCard = ({ data }: any) => {
 				</div>
 				<div className="justify-self-end col-span-2">
 					{LangIcon ? (
-						<LangIcon width={34} height={34} fill="currentColor" />
+						<LangIcon width={24} height={24} fill="currentColor" />
 					) : (
 						<CodeIcon width={24} height={24} fill="currentColor" />
 					)}
