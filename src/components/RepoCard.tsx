@@ -20,22 +20,21 @@ const RepoCard = ({ data }: any) => {
 
 	return (
 		<Card className="w-full max-w-sm p-6 grid gap-6">
-			<div className="flex items-center gap-4 w-fit">
-				<Avatar className="w-12 h-12">
+			<div className="grid items-center gap-4 w-full grid-cols-12">
+				<Avatar className="w-12 h-12 col-span-2">
 					<AvatarImage src={data.owner.avatar_url} />
 					<AvatarFallback>GH</AvatarFallback>
 				</Avatar>
-				<div className="space-y-1 w-fit px-2">
+				<div className="space-y-1 w-fit px-2 col-span-8">
 					<h3 className="text-xl font-bold w-full">{data.name}</h3>
 					<p className="text-muted-foreground">{data.owner.login}</p>
-					<div className="flex flex-row items-center gap-1">
-						{LangIcon ? (
-							<LangIcon width={24} height={24} fill="currentColor" />
-						) : (
-							<CodeIcon width={24} height={24} fill="currentColor" />
-						)}
-						<div className="text-muted-foreground">{data.language}</div>
-					</div>
+				</div>
+				<div className="justify-self-end col-span-2">
+					{LangIcon ? (
+						<LangIcon width={34} height={34} fill="currentColor" />
+					) : (
+						<CodeIcon width={24} height={24} fill="currentColor" />
+					)}
 				</div>
 			</div>
 			<div className="space-y-4 text-sm min-w-fit">
