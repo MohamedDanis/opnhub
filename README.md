@@ -26,7 +26,7 @@ Here're some of the project's best features:
 <p>1. Clone the repository</p>
 
 ```
-git clone https://github.com/yourusername/opnhub.git
+git clone https://github.com/MohamedDanis/opnhub.git
 ```
 
 <p>2. Install dependencies:</p>
