@@ -1,6 +1,6 @@
 <h1 align="center" id="title">OPNHUB</h1>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"><img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image"></p>
@@ -81,6 +81,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LeninKhangjrakpam"><img src="https://avatars.githubusercontent.com/u/74423882?v=4?s=100" width="100px;" alt="Lenin Khangjrakpam"/><br /><sub><b>Lenin Khangjrakpam</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=LeninKhangjrakpam" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://abhi9ab-portfolio.vercel.app/"><img src="https://avatars.githubusercontent.com/u/118924053?v=4?s=100" width="100px;" alt="Abhinab Das"/><br /><sub><b>Abhinab Das</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=abhi9ab" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

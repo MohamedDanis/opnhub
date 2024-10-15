@@ -78,6 +78,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "abhi9ab",
+      "name": "Abhinab Das",
+      "avatar_url": "https://avatars.githubusercontent.com/u/118924053?v=4",
+      "profile": "https://abhi9ab-portfolio.vercel.app/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
