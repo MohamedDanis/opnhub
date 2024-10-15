@@ -6,6 +6,13 @@ import { Button } from "./ui/button";
 import { ArrowRightIcon, LoaderCircleIcon, XIcon } from "lucide-react";
 import RepoCard from "./RepoCard";
 import Lenis from "./Lenis";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+  } from "@/components/ui/select"
 
 export type Repo = {
 	id: number;
@@ -92,6 +99,17 @@ const SearchInput = () => {
 			setDisbled(false);
 		}
 	}
+
+	const handleSort = (value: string) => {
+		if (value === "Fork") {
+			const sortedByForks = [...repos].sort((a, b) => b.forks_count - a.forks_count);
+			setRepos(sortedByForks);
+		} else if (value === "Stars") {
+			const sortedByStars = [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count);
+			setRepos(sortedByStars);
+		}
+	};
+
 	return (
 		<section className="flex gap-4 flex-col items-center px-6">
 			<div className="space-y-6">
@@ -136,6 +154,19 @@ const SearchInput = () => {
 					))}
 				</div>
 			</div>
+			{repos.length > 0 && (
+			<div className="self-end w-fit">
+				<Select onValueChange={handleSort}>
+					<SelectTrigger className="w-[180px]">
+						<SelectValue placeholder="Sort by" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="Fork">Fork</SelectItem>
+						<SelectItem value="Stars">Stars</SelectItem>
+					</SelectContent>
+				</Select>
+			</div>
+			)}
 			{error && <div className="text-red-500 mt-4">{error}</div>}
 			<div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
 				{repos.map((item: Repo, index: number) => {
