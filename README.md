@@ -1,6 +1,6 @@
 <h1 align="center" id="title">OPNHUB</h1>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"><img src="https://i.ibb.co/sR10VbT/opnhub-1.png" alt="project-image"></p>
@@ -78,6 +78,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/imkurosaki"><img src="https://avatars.githubusercontent.com/u/156565248?v=4?s=100" width="100px;" alt="Ken Kurosaki"/><br /><sub><b>Ken Kurosaki</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=imkurosaki" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://halftoothed.github.io"><img src="https://avatars.githubusercontent.com/u/105924966?v=4?s=100" width="100px;" alt="Abhishek Patil"/><br /><sub><b>Abhishek Patil</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=HalfToothed" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://akshayxml.com"><img src="https://avatars.githubusercontent.com/u/22844002?v=4?s=100" width="100px;" alt="Akshay M"/><br /><sub><b>Akshay M</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=akshayxml" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LeninKhangjrakpam"><img src="https://avatars.githubusercontent.com/u/74423882?v=4?s=100" width="100px;" alt="Lenin Khangjrakpam"/><br /><sub><b>Lenin Khangjrakpam</b></sub></a><br /><a href="https://github.com/MohamedDanis/opnhub/commits?author=LeninKhangjrakpam" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
