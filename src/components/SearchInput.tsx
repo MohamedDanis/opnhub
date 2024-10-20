@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AutoComplete, type Option } from "@/components/AutoComplete";
 import { PROGRAMMING_LANGUAGES } from "@/utils/constants";
 import { Button } from "./ui/button";
-import { ArrowRightIcon, LoaderCircleIcon, XIcon } from "lucide-react";
+import { ArrowRightIcon, LoaderCircleIcon, XIcon, ArrowUpIcon } from "lucide-react";
 import RepoCard from "./RepoCard";
 import Lenis from "./Lenis";
 import {
@@ -12,7 +12,7 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-  } from "@/components/ui/select"
+} from "@/components/ui/select";
 
 export type Repo = {
 	id: number;
@@ -33,6 +33,7 @@ const SearchInput = () => {
 	const [topics, setTopics] = useState<any>([]);
 	const [repos, setRepos] = useState<Repo[]>([]);
 	const [error, setError] = useState<string | null>(null);
+	const [showScrollButton, setShowScrollButton] = useState(false); 
 
 	const handleLanguagesChange = (newSelectedLanguages: Option[]) => {
 		setSelectedLanguages(newSelectedLanguages);
@@ -110,6 +111,28 @@ const SearchInput = () => {
 		}
 	};
 
+	// Scroll-to-top logic
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollY = window.scrollY;
+			const repoThreshold = document.getElementById("repo-list")?.offsetTop ?? 0;
+			const hasScrolledPastThreshold = scrollY > repoThreshold;
+
+			if (hasScrolledPastThreshold) {
+				setShowScrollButton(true);
+			} else {
+				setShowScrollButton(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, [repos]);
+
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	};
+
 	return (
 		<section className="flex gap-4 flex-col items-center px-6">
 			<div className="space-y-6">
@@ -155,17 +178,17 @@ const SearchInput = () => {
 				</div>
 			</div>
 			{repos.length > 0 && (
-			<div className="self-end w-fit">
-				<Select onValueChange={handleSort}>
-					<SelectTrigger className="w-[180px]">
-						<SelectValue placeholder="Sort by" />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="Fork">Fork</SelectItem>
-						<SelectItem value="Stars">Stars</SelectItem>
-					</SelectContent>
-				</Select>
-			</div>
+				<div id="repo-list" className="self-end w-fit">
+					<Select onValueChange={handleSort}>
+						<SelectTrigger className="w-[180px]">
+							<SelectValue placeholder="Sort by" />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="Fork">Fork</SelectItem>
+							<SelectItem value="Stars">Stars</SelectItem>
+						</SelectContent>
+					</Select>
+				</div>
 			)}
 			{error && <div className="text-red-500 mt-4">{error}</div>}
 			<div className=" mt-10 grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3  gap-4">
@@ -173,6 +196,15 @@ const SearchInput = () => {
 					return <RepoCard key={index} data={item} />;
 				})}
 			</div>
+
+			{/* Scroll to top button */}
+			{showScrollButton && (
+				<Button
+					className="fixed bottom-5 right-5 p-3 rounded-full bg-primary text-white shadow-lg"
+					onClick={scrollToTop}>
+					<ArrowUpIcon className="w-5 h-5" />
+				</Button>
+			)}
 		</section>
 	);
 };
