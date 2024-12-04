@@ -4,6 +4,8 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import Clarity from '@microsoft/clarity';
+const projectId = "p8lbkeh3p6"
 
 const inter = Inter({ subsets: ["latin"] });
 const rethink = Rethink_Sans({ subsets: ["latin"] });
@@ -48,6 +50,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  Clarity.init(projectId);
   return (
     <html lang="en" className={grotesk.variable}>
       <Analytics />
