@@ -19,22 +19,19 @@ export default function Home() {
             {/* Logo section */}
             <div className="flex items-center gap-4">
               <h1 className="text-4xl font-semibold text-primary">OPNHUB</h1>
-              <X className="text-foreground" />
+              {/* <X className="text-foreground" />
               <Link href={"https://hacktoberfest.com/"}>
                 <Image
                   src={logo}
                   alt="hacktoberfest-logo"
                   className="w-[75px] h-[100px]"
                 />
-              </Link>
+              </Link> */}
             </div>
             {/* Description */}
             <p className="max-w-[450px] text-center my-3 text-foreground">
               Discover open-source projects from GitHub, categorized by
               programming languages{" "}
-              <span className="font-medium">
-                (Now hacktoberfest related repos)
-              </span>.
             </p>
           </div>
 
