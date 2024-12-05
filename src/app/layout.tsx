@@ -56,7 +56,7 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
       <body className={rethink.className}>{children}</body>
-      <Script id="clarity" strategy="afterInteractive">
+      <Script id="ms_clarity" strategy="afterInteractive">
         {`
              (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
