@@ -1,10 +1,9 @@
 import { SearchInput } from "@/components";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/vertical_dark_green.svg";
-import { Github, X } from "lucide-react";
+import { Github } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import SignInButton from "@/components/SignInButton";
 
 export default function Home() {
   return (
@@ -49,13 +48,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Top right corner icons */}
-          <div className="absolute top-10 right-10 flex items-center gap-6">
-            <ThemeToggle />
-            <Link href={"https://github.com/MohamedDanis/opnhub"}>
-              <Github className="text-foreground" />
-            </Link>
-            <Link
+                <div className="absolute top-10 left-10 flex items-center gap-6">
+                   <Link
               href="https://www.producthunt.com/posts/opnhub?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-opnhub"
               target="_blank"
             >
@@ -67,8 +61,15 @@ export default function Home() {
                 height="54"
               />
             </Link>
+                </div>
+          {/* Top right corner icons */}
+          <div className="absolute top-10 right-10 flex items-center gap-6">
+            <ThemeToggle />
+            <Link href={"https://github.com/MohamedDanis/opnhub"}>
+              <Github className="text-foreground" />
+            </Link>
+          <SignInButton/>
           </div>
-
           {/* Search Section */}
           <div className="flex flex-col gap-4 my-5 relative">
             <SearchInput />

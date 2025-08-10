@@ -6,6 +6,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import Clarity from '@microsoft/clarity';
 const projectId = "p8lbkeh3p6"
+import { DevCycleClientsideProvider } from '@devcycle/nextjs-sdk'
+// import the getClientContext method from your shared DevCycle file
+import { getClientContext } from './devcycle'
 
 const inter = Inter({ subsets: ["latin"] });
 const rethink = Rethink_Sans({ subsets: ["latin"] });
@@ -55,7 +58,11 @@ export default function RootLayout({
     <html lang="en" className={grotesk.variable}>
       <Analytics />
       <SpeedInsights />
-      <body className={rethink.className}>{children}</body>
+      <body className={rethink.className}>
+         <DevCycleClientsideProvider context={getClientContext()}>
+          {children}
+         </DevCycleClientsideProvider>
+      </body>
       <Script id="ms_clarity" strategy="afterInteractive">
         {`
              (function(c,l,a,r,i,t,y){
