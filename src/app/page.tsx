@@ -48,7 +48,7 @@ export default function Home() {
             </p>
           </div>
 
-                <div className="absolute top-10 left-10 flex items-center gap-6">
+                <div className="absolute top-10 left-10 items-center gap-6 hidden sm:flex">
                    <Link
               href="https://www.producthunt.com/posts/opnhub?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-opnhub"
               target="_blank"

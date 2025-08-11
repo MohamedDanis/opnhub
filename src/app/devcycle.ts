@@ -1,14 +1,20 @@
 import { setupDevCycle } from '@devcycle/nextjs-sdk/server'
-import { authClient } from "@/lib/auth-client"
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
  
 const getUserIdentity = async () => {
   // pseudocode function representing some call you might make to
   // your code to determine the current user
   // You can use Next APIs such as `headers()` and `cookies()` here
-  const { data: session } = await authClient.getSession()
+   const session = await auth.api.getSession({
+        headers: await headers()
+    })
   const myUser = await session?.user
+  
   return {
     user_id: myUser?.id,
+    email: myUser?.email,
+
   }
 }
 
@@ -21,7 +27,8 @@ export const { getVariableValue, getClientContext } = setupDevCycle({
     const identity = await getUserIdentity();
     // Ensure user_id is never undefined by providing a default value
     return {
-      user_id: identity.user_id || 'anonymous'
+      user_id: identity.user_id || 'anonymous',
+      email: identity.email,
     };
   },
   options: {},

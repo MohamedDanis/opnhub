@@ -1,22 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Card } from "./ui/card";
+import { useVariableValue } from '@devcycle/nextjs-sdk'
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { BugIcon, ForkIcon, StarIcon, CodeIcon } from "./ui/icons";
 import { PROGRAMMING_LANGUAGES } from "@/utils/constants";
+import { Code } from "lucide-react";
 
 const RepoCard = ({ data }: any) => {
 	const [showMore, setShowMore] = useState(false);
+	const codeVariable = useVariableValue('direct-code-editor', false)
 
 	const LangIcon:
 		| React.ComponentType<{ width: number; height: number; fill: string }>
 		| undefined = PROGRAMMING_LANGUAGES.find(
-		(d) => d.iconName.toLowerCase() === data.language.toLowerCase(),
-	)?.icon as
+			(d) => d.iconName.toLowerCase() === data.language.toLowerCase(),
+		)?.icon as
 		| React.ComponentType<{ width: number; height: number; fill: string }>
 		| undefined;
+
 
 	return (
 		<Card className="w-full max-w-sm p-6 grid gap-6">
@@ -26,15 +30,27 @@ const RepoCard = ({ data }: any) => {
 					<AvatarFallback>GH</AvatarFallback>
 				</Avatar>
 				<div className="space-y-1 w-fit px-2 col-span-8">
-					<h3 className="text-xl font-bold w-full">{data.name}</h3>
+					<h3 className="text-xl font-bold w-full">
+						{data.name}
+					</h3>
 					<p className="text-muted-foreground">{data.owner.login}</p>
 				</div>
-				<div className="justify-self-end col-span-2">
-					{LangIcon ? (
-						<LangIcon width={25} height={25} fill="currentColor" />
-					) : (
-						<CodeIcon width={25} height={25} fill="currentColor" />
-					)}
+				<div className="">
+					{
+						codeVariable ? (
+							<Link href={data.html_url.replace('github.com', 'github.dev')} target="_blank">
+								<Code className="" />
+							</Link>
+						) : (
+							<>
+								{LangIcon ? (
+									<LangIcon width={25} height={25} fill="currentColor" />
+								) : (
+									<CodeIcon width={25} height={25} fill="currentColor" />
+								)}
+							</>
+						)
+					}
 				</div>
 			</div>
 			<div className="space-y-4 text-sm min-w-fit">
@@ -62,36 +78,40 @@ const RepoCard = ({ data }: any) => {
 					})}
 				</div>
 				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-2 text-muted-foreground">
-						<BugIcon className="w-5 h-5" />
-						<Link
-							href={`${data.html_url}/issues`}
-							className="text-sm font-medium"
-							prefetch={false}
-							target="_blank">
-							{data?.open_issues_count}
-						</Link>
+					<div className="flex items-center gap-4">
+
+						<div className="flex items-center gap-2 text-muted-foreground">
+							<BugIcon className="w-5 h-5" />
+							<Link
+								href={`${data.html_url}/issues`}
+								className="text-sm font-medium"
+								prefetch={false}
+								target="_blank">
+								{data?.open_issues_count}
+							</Link>
+						</div>
+						<div className="flex items-center gap-2 text-muted-foreground">
+							<ForkIcon className="w-5 h-5" />
+							<Link
+								href={`${data.html_url}/forks`}
+								className="text-sm font-medium"
+								prefetch={false}
+								target="_blank">
+								{data?.forks_count}
+							</Link>
+						</div>
+						<div className="flex items-center gap-2 text-muted-foreground">
+							<StarIcon className="w-5 h-5" />
+							<Link
+								href={`${data.html_url}/stargazers`}
+								className="text-sm font-medium"
+								prefetch={false}
+								target="_blank">
+								{data?.stargazers_count}
+							</Link>
+						</div>
 					</div>
-					<div className="flex items-center gap-2 text-muted-foreground">
-						<ForkIcon className="w-5 h-5" />
-						<Link
-							href={`${data.html_url}/forks`}
-							className="text-sm font-medium"
-							prefetch={false}
-							target="_blank">
-							{data?.forks_count}
-						</Link>
-					</div>
-					<div className="flex items-center gap-2 text-muted-foreground">
-						<StarIcon className="w-5 h-5" />
-						<Link
-							href={`${data.html_url}/stargazers`}
-							className="text-sm font-medium"
-							prefetch={false}
-							target="_blank">
-							{data?.stargazers_count}
-						</Link>
-					</div>
+
 					<Button
 						asChild
 						variant="ghost"
