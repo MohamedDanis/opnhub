@@ -17,7 +17,7 @@
 
 Here're some of the project's best features:
 
-*   minimal and clean UI
+*   minimal and clean UI.
 *   Fetches the latest data from GitHub to ensure up-to-date results.
 *   Use GitHub's REST API to find repositories based on your preferred programming language.
 
